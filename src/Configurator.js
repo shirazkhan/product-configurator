@@ -45,18 +45,36 @@ const BottomContainer = styled.div`
     justify-content: center;
 `;
 
-//export const GlobalContext = React.createContext();
+export const GlobalContext = React.createContext();
 
 export default function Configurator() {
 
     //useReducer
 
+    const initialState = {
+        product: '',
+        primaryColor: '',
+        secondaryColor: '',
+        gem1: '',
+        gem2: ''
+    }
+
+    const reducer = (prevState, action) => {
+        switch(action.type){
+            default:
+                return prevState
+            case('setPrimaryColor'):
+                return prevState //todo
+        }
+    }
+
+    const [globalState, dispatch] = useReducer(reducer,initialState);
 
 
     ////////////
 
     return (
-        //<GlobalContext>
+        <GlobalContext.Provider value = {{globalState, dispatch}}>
             <MainContainer>
                 <LeftContainer>
                     <ProductContainer>
@@ -72,6 +90,6 @@ export default function Configurator() {
                     </SideContainer>
                 </RightContainer>
             </MainContainer>
-        //</GlobalContext>
+        </GlobalContext.Provider>
     )
 }
