@@ -16,15 +16,15 @@ const OPTION_TYPES = [
     'Gems Colour 2'
 ];
 
-const optionTypesRender = (optionArr) => {
-    return optionArr.map((option) => {
-        return <Option type={option} />
-    });
-}
-
 export default function Options() {
 
     const {globalState, dispatch} = useContext(GlobalContext)
+
+    const optionTypesRender = (optionArr) => {
+        return optionArr.map((option) => {
+            return <Option type={option} />
+        });
+    }
 
     return (
         <Container>

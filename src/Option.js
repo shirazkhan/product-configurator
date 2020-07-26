@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
+import {GlobalContext} from './Configurator'
 
 const Container = styled.div`
     width: 100%;
@@ -11,8 +12,11 @@ const Container = styled.div`
 `;
 
 export default function Option(props) {
+
+    const {globalState, dispatch} = useContext(GlobalContext);
+
     return (
-        <Container>
+        <Container onClick = {() => dispatch({type:'togglePickerMode'})}>
             <h3>{props.type}</h3>
         </Container>
     )

@@ -6,7 +6,6 @@ import Options from './Options';
 
 const MainContainer = styled.div`
     display: flex;
-    border: 1px solid black;
     border-radius: 10px;
     height: 100vh;
     width: 100%;
@@ -28,7 +27,7 @@ const RightContainer = styled.div`
 
 const ProductContainer = styled.div`
     background-color: white;
-    height: 80%;
+    height: 85%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -41,8 +40,8 @@ const SideContainer = styled.div`
 `;
 
 const BottomContainer = styled.div`
-    background-color: green;
-    height: 20%;
+    border-top: 1px solid lightgray;
+    height: 15%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -63,7 +62,7 @@ export default function Configurator() {
             gem1: '',
             gem2: ''
         },
-        pickerMode: true
+        pickerMode: false
     }
 
     const reducer = (prevState, action) => {
@@ -72,6 +71,8 @@ export default function Configurator() {
                 return prevState
             case('setPrimaryColor'):
                 return prevState //todo
+            case('togglePickerMode'):
+                return {...prevState, pickerMode: !prevState.pickerMode}
         }
     }
 
