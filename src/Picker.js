@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
+import GlobalContext from './Configurator';
 
 const Container = styled.div`
     display: flex;
@@ -86,6 +87,9 @@ const optionsRender = optionsArr => {
 }
 
 export default function Picker() {
+
+    const {globalContext, dispatch} = useContext(GlobalContext);
+
     return (
         <Container>
             <TitleContainer>
