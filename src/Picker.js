@@ -28,8 +28,7 @@ const OptionButtonsContainer = styled.div`
 
 const OptionButton = styled.div`
     height: 25%;
-    width: 49%;
-    border: 1px solid blue;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +39,6 @@ const Colour = styled.div`
     height: 65px;
     width: 65px;
     border-radius: 50px;
-    background-color: red;
 `;
 
 const ColourLabel = styled.h5`
@@ -64,6 +62,26 @@ const CheckoutButton = styled.div`
     align-items: center;
 `;
 
+const PICKER_OPTIONS = [
+    {name: 'Gold', colorCode: '#FFD700', img: ''},
+    {name: 'Forest Green', colorCode: '#228B22', img: ''},
+    {name: 'Dark Violet', colorCode: '#9400D3', img: ''},
+    {name: 'Royal Blue', colorCode: '#002366', img: ''},
+    {name: 'Crimson Red', colorCode: '#FF0000', img: ''},
+    {name: 'Yellow', colorCode: '#FFFF00', img: ''},
+];
+
+const optionsRender = optionsArr => {
+    return optionsArr.map(option => {
+        return (
+            <OptionButton>
+                <Colour style = {{backgroundColor: option.colorCode}}></Colour>
+                <ColourLabel>{option.name}</ColourLabel>
+            </OptionButton>
+        )
+    });
+}
+
 export default function Picker() {
     return (
         <Container>
@@ -71,14 +89,7 @@ export default function Picker() {
                 <h3>Plate Colour</h3>
             </TitleContainer>
             <OptionButtonsContainer>
-                <OptionButton>
-                    <Colour />
-                    <ColourLabel>Crimson Red</ColourLabel>
-                </OptionButton>
-                <OptionButton />
-                <OptionButton />
-                <OptionButton />
-                <OptionButton />
+                {optionsRender(PICKER_OPTIONS)}
             </OptionButtonsContainer>
             <CheckoutContainer>
                 <CheckoutButton>Yes</CheckoutButton>
