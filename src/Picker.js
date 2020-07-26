@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components';
-import GlobalContext from './Configurator';
+import {GlobalContext} from './Configurator';
 
 const Container = styled.div`
     display: flex;
@@ -88,7 +88,7 @@ const optionsRender = optionsArr => {
 
 export default function Picker() {
 
-    const {globalContext, dispatch} = useContext(GlobalContext);
+    const {globalState, dispatch} = useContext(GlobalContext);
 
     return (
         <Container>
@@ -99,8 +99,8 @@ export default function Picker() {
                 {optionsRender(PICKER_OPTIONS)}
             </OptionButtonsContainer>
             <CheckoutContainer>
-                <CheckoutButton>Go Back</CheckoutButton>
-                <CheckoutButton>Ok</CheckoutButton>
+                <CheckoutButton onClick = {() => dispatch({type: 'togglePickerMode'})}>Go Back</CheckoutButton>
+                <CheckoutButton onClick = {() => dispatch({type: 'togglePickerMode'})}>Ok</CheckoutButton>
             </CheckoutContainer>
         </Container>
     )

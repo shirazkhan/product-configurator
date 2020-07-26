@@ -18,7 +18,7 @@ const OPTION_TYPES = [
 
 export default function Options() {
 
-    const {globalState, dispatch} = useContext(GlobalContext)
+    const {globalState, dispatch} = useContext(GlobalContext);
 
     const optionTypesRender = (optionArr) => {
         return optionArr.map((option) => {
