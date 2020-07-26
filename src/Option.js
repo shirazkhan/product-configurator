@@ -10,10 +10,10 @@ const Container = styled.div`
     align-items: center;
 `;
 
-export default function Option() {
+export default function Option(props) {
     return (
         <Container>
-            <h1>Pattern</h1>
+            <h3>{props.type}</h3>
         </Container>
     )
 }

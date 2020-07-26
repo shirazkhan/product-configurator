@@ -1,4 +1,4 @@
-import React, {useReducer,useEffect} from 'react'
+import React, {useReducer, useEffect} from 'react'
 import styled from 'styled-components';
 import Product from './Product';
 import Checkout from './Checkout';
@@ -10,6 +10,10 @@ const MainContainer = styled.div`
     border-radius: 10px;
     height: 100vh;
     width: 100%;
+
+    @media (max-width: 600px) {
+        border: 10px solid pink;
+    }
 `;
 
 const LeftContainer = styled.div`
@@ -52,11 +56,14 @@ export default function Configurator() {
     //useReducer
 
     const initialState = {
-        product: '',
-        primaryColor: '',
-        secondaryColor: '',
-        gem1: '',
-        gem2: ''
+        productSpec: {
+            product: '',
+            primaryColor: '',
+            secondaryColor: '',
+            gem1: '',
+            gem2: ''
+        },
+        pickerMode: true
     }
 
     const reducer = (prevState, action) => {

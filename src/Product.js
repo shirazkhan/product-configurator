@@ -4,12 +4,13 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     height: 90%;
-    width: 90%;
+    width: auto;
     text-align: center;
 `;
 
 const ProductImage = styled.img`
     height: 100%;
+    width: auto;
 `;
 
 export default function Product() {
