@@ -8,6 +8,7 @@ const Container = styled.div`
     height: 100%;
     align-items: center;
     justify-content: center;
+    border-left: 1px solid lightgray;
 `;
 
 const TitleContainer = styled.div`
@@ -16,6 +17,7 @@ const TitleContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid lightgray;
 `;
 
 const OptionButtonsContainer = styled.div`
@@ -51,12 +53,12 @@ const CheckoutContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid lightgray;
 `;
 
 const CheckoutButton = styled.div`
     width: 50%;
     height: 100%;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,8 +94,8 @@ export default function Picker() {
                 {optionsRender(PICKER_OPTIONS)}
             </OptionButtonsContainer>
             <CheckoutContainer>
-                <CheckoutButton>Yes</CheckoutButton>
-                <CheckoutButton>No</CheckoutButton>
+                <CheckoutButton>Go Back</CheckoutButton>
+                <CheckoutButton>Ok</CheckoutButton>
             </CheckoutContainer>
         </Container>
     )
