@@ -5,10 +5,16 @@ import {GlobalContext} from './Configurator'
 const Container = styled.div`
     width: 100%;
     height: 20%;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+`;
+
+const Icon = styled.i`
+    font-size: 40px;
+    color: black;
 `;
 
 export default function Option(props) {
@@ -17,7 +23,8 @@ export default function Option(props) {
 
     return (
         <Container onClick = {() => dispatch({type:'togglePickerMode'})}>
-            <h3>{props.type}</h3>
+            <Icon className="fas fa-palette"></Icon>
+            <h4>{props.type}</h4>
         </Container>
     )
 }

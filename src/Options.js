@@ -3,26 +3,21 @@ import Option from './Option';
 import Picker from './Picker';
 import styled from 'styled-components';
 import { GlobalContext } from './Configurator';
+import {productSource} from './ProductSource';
 
 const Container = styled.div`
     height: 100%;
     width: 100%;
+    border: 1px solid lightgray;
 `;
-
-const OPTION_TYPES = [
-    'Plate Colour',
-    'Paint Colour',
-    'Gems Colour 1',
-    'Gems Colour 2'
-];
 
 export default function Options() {
 
     const {globalState, dispatch} = useContext(GlobalContext);
 
-    const optionTypesRender = (optionArr) => {
-        return optionArr.map((option) => {
-            return <Option type={option} />
+    const optionTypesRender = (src) => {
+        return src[0].options.map(option => {
+            return <Option type={option.name} />
         });
     }
 
@@ -30,7 +25,7 @@ export default function Options() {
         <Container>
             {globalState.pickerMode
                 ? <Picker />
-                : optionTypesRender(OPTION_TYPES)}
+                : optionTypesRender(productSource)}
         </Container>
     )
 }
