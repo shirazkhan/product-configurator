@@ -30,6 +30,8 @@ const ColourLabel = styled.h5`
 
 export default function PickerButton(props) {
 
+    const [globalState, dispatch] = useContext(GlobalContext);
+
     const handleClick = name => {
         console.log(name);
     }
