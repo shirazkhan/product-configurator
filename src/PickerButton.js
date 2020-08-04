@@ -1,5 +1,6 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
+import {GlobalContext} from './Configurator';
 
 const Container = styled.div`
     height: 25%;
@@ -9,6 +10,11 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    background-color: ${props => {
+        if(props.colorName === 'Gold'){
+            return 'lightgray'
+        }
+    }}
 `;
 
 const Colour = styled.div`
@@ -24,8 +30,12 @@ const ColourLabel = styled.h5`
 
 export default function PickerButton(props) {
 
+    const handleClick = name => {
+        console.log(name);
+    }
+
     return (
-        <Container>
+        <Container onClick = {() => handleClick(props.name)} colorName = {props.name}>
             <Colour color={props.color}/>
             <ColourLabel>{props.name}</ColourLabel>
         </Container>

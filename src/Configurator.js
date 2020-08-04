@@ -62,7 +62,8 @@ export default function Configurator() {
             gem1: '',
             gem2: ''
         },
-        selectedOption: ''
+        selectedOption: '',
+        selectedChoice: ''
 
     }
 
