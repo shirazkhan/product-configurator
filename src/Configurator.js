@@ -61,6 +61,7 @@ export default function Configurator() {
             option3: '',
             option4: ''
         },
+        tempProductSpec: {},
         selectedOption: '',
         selectedChoice: ''
 
@@ -77,7 +78,7 @@ export default function Configurator() {
             case('changeSelectedChoice'):
                 return {...prevState, selectedChoice: action.choice}
             case('setOption1'):
-                return {...prevState, option1: action.option1}
+                return {...prevState, productSpec: {...prevState.productSpec, option1: action.choice}}
         }
     }
 

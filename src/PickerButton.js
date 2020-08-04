@@ -11,7 +11,7 @@ const Container = styled.div`
     flex-direction: column;
     text-align: center;
     background-color: ${props => {
-        if(props.colorName === props.stateColorName){
+        if(props.selected){
             return 'rgb(247, 247, 247)'
         }
     }}
@@ -33,11 +33,12 @@ export default function PickerButton(props) {
     const {globalState, dispatch} = useContext(GlobalContext);
 
     const handleClick = () => {
-        dispatch({type: 'changeSelectedChoice', choice: props.name})
+        dispatch({type: 'changeSelectedChoice', choice: props.name});
+        dispatch({type: 'setOption1', choice: props.name});
     }
 
     return (
-        <Container onClick = {() => handleClick()} colorName = {props.name} stateColorName={globalState.selectedChoice}>
+        <Container onClick = {() => handleClick()} colorName = {props.name} stateColorName={globalState.selectedChoice} selected={props.selected}>
             <Colour color={props.color}/>
             <ColourLabel>{props.name}</ColourLabel>
         </Container>
