@@ -78,7 +78,7 @@ export default function Picker() {
     return (
         <Container>
             <TitleContainer>
-                <h3>Plate Colour</h3>
+                <h3>{globalState.selectedOption}</h3>
             </TitleContainer>
             <OptionButtonsContainer>
                 {optionsRender(productSource)}
