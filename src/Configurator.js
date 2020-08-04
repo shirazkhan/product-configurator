@@ -62,17 +62,18 @@ export default function Configurator() {
             gem1: '',
             gem2: ''
         },
-        pickerMode: false
+        selectedOption: ''
+
     }
 
     const reducer = (prevState, action) => {
         switch(action.type){
             default:
                 return prevState
-            case('setPrimaryColor'):
-                return prevState //todo
-            case('togglePickerMode'):
-                return {...prevState, pickerMode: !prevState.pickerMode}
+            case('disablePickerMode'):
+                return {...prevState, selectedOption: ''}
+            case('changeSelectedOption'):
+                return {...prevState, selectedOption: action.option}
         }
     }
 

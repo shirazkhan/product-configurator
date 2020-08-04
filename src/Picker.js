@@ -1,6 +1,9 @@
-import React, {useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import styled from 'styled-components';
 import {GlobalContext} from './Configurator';
+import PickerButton from './PickerButton';
+import {productSource} from './ProductSource';
+import {v4 as uuid} from 'uuid';
 
 const Container = styled.div`
     display: flex;
@@ -29,26 +32,6 @@ const OptionButtonsContainer = styled.div`
     align-content: flex-start;
 `;
 
-const OptionButton = styled.div`
-    height: 25%;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-`;
-
-const Colour = styled.div`
-    height: 65px;
-    width: 65px;
-    border-radius: 50px;
-`;
-
-const ColourLabel = styled.h5`
-    margin: 15px;
-`;
-
 const CheckoutContainer = styled.div`
     height: 75px;
     width: 100%;
@@ -66,29 +49,15 @@ const CheckoutButton = styled.div`
     align-items: center;
 `;
 
-const PICKER_OPTIONS = [
-    {name: 'Gold', colorCode: '#FFD700', img: ''},
-    {name: 'Forest Green', colorCode: '#228B22', img: ''},
-    {name: 'Dark Violet', colorCode: '#9400D3', img: ''},
-    {name: 'Royal Blue', colorCode: '#002366', img: ''},
-    {name: 'Crimson Red', colorCode: '#FF0000', img: ''},
-    {name: 'Yellow', colorCode: '#FFFF00', img: ''},
-];
-
-const optionsRender = optionsArr => {
-    return optionsArr.map(option => {
-        return (
-            <OptionButton>
-                <Colour style = {{backgroundColor: option.colorCode}}></Colour>
-                <ColourLabel>{option.name}</ColourLabel>
-            </OptionButton>
-        )
-    });
-}
-
 export default function Picker() {
 
     const {globalState, dispatch} = useContext(GlobalContext);
+
+    const optionsRender = optionsArr => {
+        return optionsArr.map(option => {
+            return <PickerButton key={uuid()} name={option.name} color={option.colorCode} />
+        });
+    }
 
     return (
         <Container>
@@ -96,11 +65,15 @@ export default function Picker() {
                 <h3>Plate Colour</h3>
             </TitleContainer>
             <OptionButtonsContainer>
-                {optionsRender(PICKER_OPTIONS)}
+                {optionsRender(productSource)}
             </OptionButtonsContainer>
             <CheckoutContainer>
-                <CheckoutButton onClick = {() => dispatch({type: 'togglePickerMode'})}>Go Back</CheckoutButton>
-                <CheckoutButton onClick = {() => dispatch({type: 'togglePickerMode'})}>Ok</CheckoutButton>
+                <CheckoutButton onClick = {() => dispatch({type: 'disablePickerMode'})}>
+                    <i className="fas fa-times"></i>
+                </CheckoutButton>
+                <CheckoutButton onClick = {() => dispatch({type: 'disablePickerMode'})}>
+                    <i className="fas fa-check"></i>
+                </CheckoutButton>
             </CheckoutContainer>
         </Container>
     )

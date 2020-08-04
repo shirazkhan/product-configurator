@@ -4,6 +4,7 @@ import Picker from './Picker';
 import styled from 'styled-components';
 import { GlobalContext } from './Configurator';
 import {productSource} from './ProductSource';
+import {v4 as uuid} from 'uuid';
 
 const Container = styled.div`
     height: 100%;
@@ -16,16 +17,17 @@ export default function Options() {
     const {globalState, dispatch} = useContext(GlobalContext);
 
     const optionTypesRender = (src) => {
-        return src[0].options.map(option => {
-            return <Option type={option.name} />
+
+        return src.map(option => {
+            return <Option key={uuid()} option={option.name} />
         });
     }
 
     return (
         <Container>
-            {globalState.pickerMode
-                ? <Picker />
-                : optionTypesRender(productSource)}
+            {globalState.selectedOption === ''
+                ? optionTypesRender(productSource)
+                : <Picker />}
         </Container>
     )
 }

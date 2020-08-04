@@ -21,10 +21,14 @@ export default function Option(props) {
 
     const {globalState, dispatch} = useContext(GlobalContext);
 
+    const handleClick = () => {
+        dispatch({type:'changeSelectedOption', option: props.option})
+    }
+
     return (
-        <Container onClick = {() => dispatch({type:'togglePickerMode'})}>
+        <Container onClick = {() => handleClick()}>
             <Icon className="fas fa-palette"></Icon>
-            <h4>{props.type}</h4>
+            <h4>{props.option}</h4>
         </Container>
     )
 }
