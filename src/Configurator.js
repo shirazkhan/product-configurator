@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react'
+import React, {useReducer, useEffect} from 'react'
 import styled from 'styled-components';
 import Product from './Product';
 import Checkout from './Checkout';
@@ -73,18 +73,26 @@ export default function Configurator() {
                 return prevState
             case('disablePickerMode'):
                 return {...prevState, selectedOption: '', selectedChoice: ''}
+            case('tempProductSpecSwap'):
+                return {...prevState, tempProductSpec: {...prevState.productSpec}}
             case('changeSelectedOption'):
                 return {...prevState, selectedOption: action.option}
             case('changeSelectedChoice'):
                 return {...prevState, selectedChoice: action.choice}
             case('setOption1'):
-                return {...prevState, productSpec: {...prevState.productSpec, option1: action.choice}}
-        }
+                // return {...prevState, productSpec: {...prevState.productSpec, option1: action.choice}}
+                return {...prevState, tempProductSpec: {...prevState.productSpec, option1: action.choice}}
+            }
     }
 
     const [globalState, dispatch] = useReducer(reducer,initialState);
 
     ///////////////////////
+
+    // Copy productSpec state to tempProductSpec on first render
+    useEffect(() => {
+        dispatch({type:'tempProductSpecSwap'});
+    },[])
 
     return (
         <GlobalContext.Provider value = {{globalState, dispatch}}>

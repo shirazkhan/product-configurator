@@ -58,7 +58,7 @@ export default function Picker() {
         productSource.forEach(option => {
             if(option.name === globalState.selectedOption){
                 pickerButtons = option.choices.map(choice => {
-                    if(choice.name === globalState.productSpec.option1){
+                    if(choice.name === globalState.tempProductSpec.option1){
                         return <PickerButton key={uuid()} selected={true} name={choice.name} color={choice.colorCode} />
                     } else {
                         return <PickerButton key={uuid()} name={choice.name} color={choice.colorCode} />
