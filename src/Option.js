@@ -10,6 +10,7 @@ const Container = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 `;
 
 const Icon = styled.i`

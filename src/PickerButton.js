@@ -10,6 +10,7 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    cursor: pointer;
     background-color: ${props => {
         if(props.selected){
             return 'rgb(247, 247, 247)'
