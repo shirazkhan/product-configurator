@@ -75,6 +75,8 @@ export default function Configurator() {
                 return {...prevState, selectedOption: ''}
             case('changeSelectedOption'):
                 return {...prevState, selectedOption: action.option}
+            case('changeSelectedChoice'):
+                return {...prevState, selectedChoice: action.choice}
         }
     }
 
