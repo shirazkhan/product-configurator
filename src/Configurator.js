@@ -1,4 +1,4 @@
-import React, {useReducer, useEffect} from 'react'
+import React, {useReducer} from 'react'
 import styled from 'styled-components';
 import Product from './Product';
 import Checkout from './Checkout';
