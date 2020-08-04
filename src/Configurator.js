@@ -56,10 +56,10 @@ export default function Configurator() {
 
     const initialState = {
         productSpec: {
-            primaryColor: 'Ruby Red',
-            secondaryColor: 'Gold',
-            gem1: '',
-            gem2: ''
+            option1: 'Ruby Red',
+            option2: 'Gold',
+            option3: '',
+            option4: ''
         },
         selectedOption: '',
         selectedChoice: ''
@@ -76,6 +76,8 @@ export default function Configurator() {
                 return {...prevState, selectedOption: action.option}
             case('changeSelectedChoice'):
                 return {...prevState, selectedChoice: action.choice}
+            case('setOption1'):
+                return {...prevState, option1: action.option1}
         }
     }
 
