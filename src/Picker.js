@@ -67,6 +67,14 @@ export default function Picker() {
         });
     }
 
+    const handleCheckoutOk = () => {
+        dispatch({type: 'disablePickerMode'})
+    }
+
+    const handleCheckoutCancel = () => {
+        dispatch({type: 'disablePickerMode'})
+    }
+
     return (
         <Container>
             <TitleContainer>
@@ -76,10 +84,10 @@ export default function Picker() {
                 {optionsRender(productSource)}
             </OptionButtonsContainer>
             <CheckoutContainer>
-                <CheckoutButton onClick = {() => dispatch({type: 'disablePickerMode'})}>
+                <CheckoutButton onClick = {() => handleCheckoutOk()}>
                     <i className="fas fa-times"></i>
                 </CheckoutButton>
-                <CheckoutButton onClick = {() => dispatch({type: 'disablePickerMode'})}>
+                <CheckoutButton onClick = {() => handleCheckoutCancel()}>
                     <i className="fas fa-check"></i>
                 </CheckoutButton>
             </CheckoutContainer>

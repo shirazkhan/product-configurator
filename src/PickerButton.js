@@ -11,7 +11,7 @@ const Container = styled.div`
     flex-direction: column;
     text-align: center;
     background-color: ${props => {
-        if(props.colorName === 'Gold'){
+        if(props.colorName === props.stateColorName){
             return 'lightgray'
         }
     }}
@@ -37,7 +37,7 @@ export default function PickerButton(props) {
     }
 
     return (
-        <Container onClick = {() => handleClick()} colorName = {props.name}>
+        <Container onClick = {() => handleClick()} colorName = {props.name} stateColorName={globalState.selectedChoice}>
             <Colour color={props.color}/>
             <ColourLabel>{props.name}</ColourLabel>
         </Container>

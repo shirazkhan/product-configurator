@@ -72,7 +72,7 @@ export default function Configurator() {
             default:
                 return prevState
             case('disablePickerMode'):
-                return {...prevState, selectedOption: ''}
+                return {...prevState, selectedOption: '', selectedChoice: ''}
             case('changeSelectedOption'):
                 return {...prevState, selectedOption: action.option}
             case('changeSelectedChoice'):
