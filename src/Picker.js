@@ -54,8 +54,16 @@ export default function Picker() {
     const {globalState, dispatch} = useContext(GlobalContext);
 
     const optionsRender = optionsArr => {
+
         return optionsArr.map(option => {
-            return <PickerButton key={uuid()} name={option.name} color={option.colorCode} />
+
+            if(option.name === globalState.selectedOption){
+                return option.choices.map(choice => {
+                    return <PickerButton key={uuid()} name={choice.name} color={choice.colorCode} />
+                })
+            } else {
+                return null
+            }
         });
     }
 
