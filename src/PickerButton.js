@@ -33,7 +33,7 @@ export default function PickerButton(props) {
     const {globalState, dispatch} = useContext(GlobalContext);
 
     const handleClick = () => {
-        console.log(props.name);
+        dispatch({type: 'changeSelectedChoice', choice: props.name})
     }
 
     return (
