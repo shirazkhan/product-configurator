@@ -12,12 +12,7 @@ const ProductImage = styled.img`
     position: absolute;
 `;
 
-const productRender = () => {
-
-}
-
 export default function Product() {
-
     const {globalState,dispatch} = useContext(GlobalContext);
 
     return (

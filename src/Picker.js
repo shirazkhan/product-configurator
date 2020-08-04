@@ -53,18 +53,20 @@ export default function Picker() {
 
     const {globalState, dispatch} = useContext(GlobalContext);
 
-    const optionsRender = optionsArr => {
-
-        return optionsArr.map(option => {
-
+    const choicesRender = productSource => {
+        let pickerButtons;
+        productSource.forEach(option => {
             if(option.name === globalState.selectedOption){
-                return option.choices.map(choice => {
-                    return <PickerButton key={uuid()} name={choice.name} color={choice.colorCode} />
+                pickerButtons = option.choices.map(choice => {
+                    if(choice.name === globalState.productSpec.option1){
+                        return <PickerButton key={uuid()} selected={true} name={choice.name} color={choice.colorCode} />
+                    } else {
+                        return <PickerButton key={uuid()} name={choice.name} color={choice.colorCode} />
+                    }
                 })
-            } else {
-                return null
             }
-        });
+        })
+        return pickerButtons
     }
 
     const handleCheckoutOk = () => {
@@ -81,7 +83,7 @@ export default function Picker() {
                 <h3>{globalState.selectedOption}</h3>
             </TitleContainer>
             <OptionButtonsContainer>
-                {optionsRender(productSource)}
+                {choicesRender(productSource)}
             </OptionButtonsContainer>
             <CheckoutContainer>
                 <CheckoutButton onClick = {() => handleCheckoutOk()}>
