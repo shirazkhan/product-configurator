@@ -26,12 +26,12 @@ const RightContainer = styled.div`
 `;
 
 const ProductContainer = styled.div`
-    background-color: white;
     height: 85%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 `;
 
 const SideContainer = styled.div`
@@ -52,13 +52,12 @@ export const GlobalContext = React.createContext();
 
 export default function Configurator() {
 
-    //useReducer
+    ////// useReducer //////
 
     const initialState = {
         productSpec: {
-            product: '',
-            primaryColor: '',
-            secondaryColor: '',
+            primaryColor: 'Ruby Red',
+            secondaryColor: 'Gold',
             gem1: '',
             gem2: ''
         },
@@ -82,8 +81,7 @@ export default function Configurator() {
 
     const [globalState, dispatch] = useReducer(reducer,initialState);
 
-
-    ////////////
+    ///////////////////////
 
     return (
         <GlobalContext.Provider value = {{globalState, dispatch}}>

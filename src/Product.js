@@ -1,22 +1,29 @@
-import React from 'react';
-import PlateSrc from './img/Emerald-Green-Plate.png';
+import React, {useContext} from 'react';
+import {GlobalContext} from './Configurator';
+import GreenPlate from './img/Emerald-Green-Plate.png';
+import RubyPlate from './img/Ruby-Red-Plate.png';
+import PurplePlate from './img/Purple-Plate.png';
+import GoldDesign from './img/Gold-Design.png';
 import styled from 'styled-components';
 
-const Container = styled.div`
+const ProductImage = styled.img`
     height: 90%;
     width: auto;
-    text-align: center;
+    position: absolute;
 `;
 
-const ProductImage = styled.img`
-    height: 100%;
-    width: auto;
-`;
+const productRender = () => {
+
+}
 
 export default function Product() {
+
+    const {globalState,dispatch} = useContext(GlobalContext);
+
     return (
-        <Container>
-            <ProductImage src = {PlateSrc}/>
-        </Container>
+        <>
+            <ProductImage src = {RubyPlate}/>
+            <ProductImage src = {GoldDesign}/>        
+        </>
     )
 }

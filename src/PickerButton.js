@@ -12,7 +12,7 @@ const Container = styled.div`
     text-align: center;
     background-color: ${props => {
         if(props.colorName === props.stateColorName){
-            return 'lightgray'
+            return 'rgb(247, 247, 247)'
         }
     }}
 `;
