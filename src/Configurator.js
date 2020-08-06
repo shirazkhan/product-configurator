@@ -85,6 +85,12 @@ export default function Configurator() {
                 return {...prevState, tempProductSpec: {...prevState.productSpec, option1: action.choice}}
             case('setOption2'):
                 return {...prevState, tempProductSpec: {...prevState.productSpec, option2: action.choice}}
+            case('setOption3'):
+                return {...prevState, tempProductSpec: {...prevState.productSpec, option2: action.choice}}
+            case('setOption4'):
+                return {...prevState, tempProductSpec: {...prevState.productSpec, option2: action.choice}}
+            case('setOption5'):
+                return {...prevState, tempProductSpec: {...prevState.productSpec, option2: action.choice}}
         }
     }
 
