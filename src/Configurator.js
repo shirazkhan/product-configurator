@@ -82,9 +82,10 @@ export default function Configurator() {
             case('changeSelectedChoice'):
                 return {...prevState, selectedChoice: action.choice}
             case('setOption1'):
-                // return {...prevState, productSpec: {...prevState.productSpec, option1: action.choice}}
                 return {...prevState, tempProductSpec: {...prevState.productSpec, option1: action.choice}}
-            }
+            case('setOption2'):
+                return {...prevState, tempProductSpec: {...prevState.productSpec, option2: action.choice}}
+        }
     }
 
     const [globalState, dispatch] = useReducer(reducer,initialState);
