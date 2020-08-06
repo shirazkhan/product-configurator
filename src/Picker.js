@@ -71,11 +71,15 @@ export default function Picker() {
     }
 
     const handleCheckoutOk = () => {
-        dispatch({type: 'disablePickerMode'})
+        dispatch({type: 'disablePickerMode'});
+        dispatch({type: 'tempToProductSpecSwap'})
+        console.log("OK")
     }
 
     const handleCheckoutCancel = () => {
-        dispatch({type: 'disablePickerMode'})
+        dispatch({type: 'disablePickerMode'});
+        dispatch({type: 'productSpecToTempSwap'})
+        console.log("Cancel")
     }
 
     return (
@@ -87,10 +91,10 @@ export default function Picker() {
                 {choicesRender(productSource)}
             </OptionButtonsContainer>
             <CheckoutContainer>
-                <CheckoutButton onClick = {() => handleCheckoutOk()}>
+                <CheckoutButton onClick = {() => handleCheckoutCancel()}>
                     <i className="fas fa-times"></i>
                 </CheckoutButton>
-                <CheckoutButton onClick = {() => handleCheckoutCancel()}>
+                <CheckoutButton onClick = {() => handleCheckoutOk()}>
                     <i className="fas fa-check"></i>
                 </CheckoutButton>
             </CheckoutContainer>

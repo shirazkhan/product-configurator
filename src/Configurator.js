@@ -73,8 +73,10 @@ export default function Configurator() {
                 return prevState
             case('disablePickerMode'):
                 return {...prevState, selectedOption: '', selectedChoice: ''}
-            case('tempProductSpecSwap'):
+            case('productSpecToTempSwap'):
                 return {...prevState, tempProductSpec: {...prevState.productSpec}}
+            case('tempToProductSpecSwap'):
+                return {...prevState, productSpec: {...prevState.tempProductSpec}}
             case('changeSelectedOption'):
                 return {...prevState, selectedOption: action.option}
             case('changeSelectedChoice'):
@@ -91,7 +93,7 @@ export default function Configurator() {
 
     // Copy productSpec state to tempProductSpec on first render
     useEffect(() => {
-        dispatch({type:'tempProductSpecSwap'});
+        dispatch({type:'productSpecToTempSwap'});
     },[])
 
     return (
