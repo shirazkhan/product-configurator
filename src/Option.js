@@ -23,7 +23,7 @@ export default function Option(props) {
     const {globalState, dispatch} = useContext(GlobalContext);
 
     const handleClick = () => {
-        dispatch({type:'changeSelectedOption', option: props.option})
+        dispatch({type:'setSelectedOption', option: props.option})
     }
 
     return (

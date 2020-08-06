@@ -77,9 +77,9 @@ export default function Configurator() {
                 return {...prevState, tempProductSpec: {...prevState.productSpec}}
             case('tempToProductSpecSwap'):
                 return {...prevState, productSpec: {...prevState.tempProductSpec}}
-            case('changeSelectedOption'):
+            case('setSelectedOption'):
                 return {...prevState, selectedOption: action.option}
-            case('changeSelectedChoice'):
+            case('setSelectedChoice'):
                 return {...prevState, selectedChoice: action.choice}
             case('setOption1'):
                 return {...prevState, tempProductSpec: {...prevState.productSpec, option1: action.choice}}
