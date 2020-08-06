@@ -13,9 +13,6 @@ const ProductImage = styled.img`
 `;
 
 export default function Product() {
-
-    console.log("Product");
-
     const {globalState,dispatch} = useContext(GlobalContext);
 
     return (

@@ -23,9 +23,6 @@ const ShareButton = styled.button`
 `;
 
 export default function Checkout() {
-
-    console.log("Checkout");
-    
     return (
         <div>
             <DoneButton>Done</DoneButton>

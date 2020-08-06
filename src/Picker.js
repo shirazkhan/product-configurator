@@ -52,8 +52,6 @@ const CheckoutButton = styled.div`
 
 export default function Picker() {
 
-    console.log("Picker");
-
     const {globalState, dispatch} = useContext(GlobalContext);
 
     const choicesRender = productSource => {

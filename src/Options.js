@@ -14,8 +14,6 @@ const Container = styled.div`
 
 export default function Options() {
 
-    console.log("Options");
-
     const {globalState, dispatch} = useContext(GlobalContext);
 
     const optionTypesRender = (src) => {

@@ -20,8 +20,6 @@ const Icon = styled.i`
 
 export default function Option(props) {
 
-    console.log("Option");
-
     const {globalState, dispatch} = useContext(GlobalContext);
 
     const handleClick = () => {
