@@ -52,6 +52,8 @@ export const GlobalContext = React.createContext();
 
 export default function Configurator() {
 
+    console.log("Configurator");
+
     ////// useReducer //////
 
     const initialState = {
