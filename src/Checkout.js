@@ -10,6 +10,7 @@ const DoneButton = styled.button`
     color: white;
     margin: 0 5px 0 5px;
     font-size: 12pt;
+    cursor: pointer;
 `;
 
 const ShareButton = styled.button`
@@ -20,6 +21,7 @@ const ShareButton = styled.button`
     background-color: white;
     margin: 0 5px 0 5px;
     font-size: 12pt;
+    cursor: pointer;
 `;
 
 export default function Checkout() {
