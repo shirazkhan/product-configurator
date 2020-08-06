@@ -56,21 +56,13 @@ export default function Picker() {
 
     const choicesRender = productSource => { // choicesRender function
         let pickerButtons;
-        productSource.forEach(option => { // for each option in productSource
+        productSource.forEach((option,idx) => { // for each option in productSource
             if(option.name === globalState.selectedOption){ // if name of option === selected option
                 pickerButtons = option.choices.map(choice => { // then map option & get each choice
-                    if(choice.name === globalState.tempProductSpec.option1){ // and if choice name === temp product spec
-                        return <PickerButton key={uuid()} selected={true} name={choice.name} color={choice.colorCode} option={1}/>
-                    } else if(choice.name === globalState.tempProductSpec.option1){
-                        return <PickerButton key={uuid()} selected={true} name={choice.name} color={choice.colorCode} option={2}/>
-                    } else if(choice.name === globalState.tempProductSpec.option2){
-                        return <PickerButton key={uuid()} selected={true} name={choice.name} color={choice.colorCode} option={3}/>
-                    } else if(choice.name === globalState.tempProductSpec.option3){
-                        return <PickerButton key={uuid()} selected={true} name={choice.name} color={choice.colorCode} option={4}/>
-                    } else if(choice.name === globalState.tempProductSpec.option4){
-                        return <PickerButton key={uuid()} selected={true} name={choice.name} color={choice.colorCode} option={5}/>
+                    if(choice.name === globalState.tempProductSpec[`option${idx+1}`]){ // and if choice name === temp product spec
+                        return <PickerButton key={uuid()} selected={true} name={choice.name} color={choice.colorCode} option={idx+1}/>
                     } else {
-                        return <PickerButton key={uuid()} name={choice.name} color={choice.colorCode} option={1}/>
+                        return <PickerButton key={uuid()} name={choice.name} color={choice.colorCode} option={idx+1}/>
                     }
                 })
             }
