@@ -5,6 +5,7 @@ import RubyPlate from './img/Ruby-Red-Plate.png';
 import PurplePlate from './img/Purple-Plate.png';
 import GoldDesign from './img/Gold-Design.png';
 import styled from 'styled-components';
+import {productSource} from './ProductSource';
 
 const ProductImage = styled.img`
     height: 90%;
