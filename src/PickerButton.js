@@ -35,7 +35,7 @@ export default function PickerButton(props) {
 
     const handleClick = () => {
         dispatch({type: 'changeSelectedChoice', choice: props.name});
-        dispatch({type: 'setOption1', choice: props.name});
+        dispatch({type: `setOption${props.option}`, choice: props.name});
     }
 
     return (
